@@ -1,0 +1,13 @@
+{
+  "name": "customers",
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://eccoengmdp.hopto.org:8100/uso/api/tecnico/ConsultarTecnicos"
+    }],
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
