@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PrestadoresProvider } from '../../providers/prestadores/prestadores';
 import 'rxjs/add/operator/map';
+import { SolicitaPage } from '../solicita/solicita';
 
 /**
  * Generated class for the PrestadorPage page.
@@ -42,5 +43,20 @@ export class PrestadorPage {
       
        )
   }
+
+  itemSelected(feed):void {
+    //alert(dados.nome);
+    this.navCtrl.push('SolicitaPage', {
+      parametroReferenciaEnviado: feed
+    });
+ }
+
+ Show(){
+  
+  this.navCtrl.push('HomePage');
+
+}
+
+
 
 }
