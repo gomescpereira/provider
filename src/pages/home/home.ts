@@ -4,6 +4,7 @@ import {AngularFireAuth } from "angularfire2/auth";
 import { User } from '../../models/user';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Guest } from '../../models/guest';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -21,8 +22,8 @@ export class HomePage {
    user = {} as Guest;
    @ViewChild('map') mapElement: ElementRef;
    map: any;
+   public lista = new Array<any>();
  
-
   constructor(
     private ofAuth: AngularFireAuth,
     public navCtrl: NavController,
@@ -87,7 +88,7 @@ export class HomePage {
     
 
   addMarker(){
- 
+     
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
@@ -96,9 +97,13 @@ export class HomePage {
    
   }
 
+ 
+  
+
   listar(){
     console.log(this.user);
-    this.navCtrl.push('PrestadorPage');
+    this.navCtrl.push('PrestadorPage', { parametroReferenciaEnviado: this.user}
+  );
 
   }
 
