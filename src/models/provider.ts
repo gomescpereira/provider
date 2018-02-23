@@ -7,4 +7,4 @@ export class Solicitante {
     late: number;
     lng: number;
     token: string;
- }
+ } 

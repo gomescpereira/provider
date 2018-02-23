@@ -11,6 +11,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { PrestadoresProvider } from '../providers/prestadores/prestadores';
+import { CustomerProvider } from '../providers/customer/customer';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     HttpModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -35,8 +37,9 @@ import { HttpModule } from '@angular/http';
     Geolocation,
       Facebook,
       PrestadoresProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PrestadoresProvider
-  ]
+      CustomerProvider,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    
+    ]
 })
 export class AppModule {}

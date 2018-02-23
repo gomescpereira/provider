@@ -4,7 +4,9 @@ import {AngularFireAuth } from "angularfire2/auth";
 import { User } from '../../models/user';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Guest } from '../../models/guest';
-
+import { PrestadoresProvider } from '../../providers/prestadores/prestadores';
+import { forEach } from '@firebase/util';
+import 'rxjs/add/operator/map';
 /**
  * Generated class for the HomePage page.
  *
@@ -29,7 +31,8 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public geolocation: Geolocation,
-  private toast: ToastController) {
+  private toast: ToastController,
+  public prestadorProvider : PrestadoresProvider) {
   }
 
   ionViewDidLoad() {
@@ -48,7 +51,7 @@ export class HomePage {
      console.log('Erro')
     }
     });
-
+   // this.carrega()
   }
 
   loadMap(){
@@ -83,9 +86,30 @@ export class HomePage {
     }, (err) => {
       console.log(err);
     });
- 
+
+   
   }
     
+  carrega(){
+    this.prestadorProvider.getPrestadores().map(res => res.json()).subscribe(
+      data => {
+        //const response = (data as any);
+        //const obj_retorno = JSON.parse(response._body); 
+ 
+         
+         this.lista = data;
+        
+     // this.Marker2();
+       console.log(this.lista);
+      }, error => {
+        console.log(error);
+      }
+      
+       )
+
+
+
+  }
 
   addMarker(){
      
@@ -94,8 +118,8 @@ export class HomePage {
       animation: google.maps.Animation.DROP,
       position: this.map.getCenter()
     });
-   
   }
+   
 
  
   

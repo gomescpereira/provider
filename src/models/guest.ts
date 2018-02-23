@@ -3,7 +3,9 @@ import { User } from './user';
 export class Guest {
     nome: string;
     email: string;
-    cliente: User;
+    nmtecnico: string;
+    emailtecnico: string;
+    descricao: string;
     latitude: number;
     longitude: number;
 

@@ -16,20 +16,20 @@
 <ion-content padding>
   <ion-item>
     <ion-label fixed>Nome Contato:</ion-label>
-    <ion-input type="text"  ></ion-input>
+    <ion-input type="text" [(ngModel)]="tecnico.nome" ></ion-input>
   </ion-item>
   <ion-item>
     <ion-label fixed>E-mail Contato:</ion-label>
-    <ion-input type="text"  [(ngModel)]="user.email"></ion-input>
+    <ion-input type="text"  [(ngModel)]="tecnico.email"></ion-input>
   </ion-item>
   
     <ion-item>
       <ion-label fixed>Tecnico:</ion-label>
-      <ion-input type="text"  [(ngModel)]="tecnico.nome"></ion-input>
+      <ion-input type="text"  [(ngModel)]="tecnico. nmtecnico"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>E-mail:</ion-label>
-      <ion-input type="text"  [(ngModel)]="tecnico.email"></ion-input>
+      <ion-input type="text"  [(ngModel)]="tecnico.emailtecnico"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label fixed>Descrição:</ion-label>

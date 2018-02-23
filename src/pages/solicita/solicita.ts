@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Guest } from '../../models/guest';
 import {AngularFireAuth } from "angularfire2/auth";
+import { CustomerProvider } from '../../providers/customer/customer';
 
 
 /**
@@ -24,6 +25,9 @@ import {AngularFireAuth } from "angularfire2/auth";
 @Component({
   selector: 'page-solicita',
   templateUrl: 'solicita.html',
+  providers: [
+    CustomerProvider 
+  ]
 })
 
 export class SolicitaPage {
@@ -34,9 +38,11 @@ export class SolicitaPage {
   user = {} as User;
 
   constructor(public navCtrl: NavController, public NavParams: NavParams,
-    private ofAuth: AngularFireAuth,private toast: ToastController){
+    private ofAuth: AngularFireAuth,private toast: ToastController,
+    public customerProvider : CustomerProvider){
    this.item = NavParams.get("parametroReferenciaEnviado");
    this.tecnico = new Guest();
+   
   }
 
   ionViewDidLoad() { 
@@ -48,24 +54,36 @@ export class SolicitaPage {
        
       }).present();
       this.user.email = data.email;
-      console.log('nome:'+data.email);
+      console.log('nome:'+ this.user.email);
     } 
     else {
      console.log('Erro')
     }
   })
-    this.tecnico.nome = this.item['nome'];
 
-    this.tecnico.email = this.item['email'];
+   this.tecnico.emailtecnico  = this.item['email'];
 
-   // this.tecnico.cliente.email = this.user.email;
+    this.tecnico.nmtecnico = this.item['nome'];
 
-    this.tecnico.latitude = this.item['Lat'];
+    
+    
 
-    this.tecnico.latitude = this.item['Lng'];
+    this.tecnico.latitude = this.item['lat'];
+
+    this.tecnico.latitude = this.item['lng'];
+
+    
     
    
     console.log(this.item['nome']);
+  }
+
+  cadastrar(tecnico){
+    this.tecnico.email = this.user.email;
+    console.log(tecnico);
+  
+     this.customerProvider.add(tecnico);
+
   }
 }
 
