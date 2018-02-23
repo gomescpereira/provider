@@ -66,11 +66,11 @@ export class SolicitaPage {
     this.tecnico.nmtecnico = this.item['nome'];
 
     
-    
+    console.log('lat:' + this.item['lng']);    
 
     this.tecnico.latitude = this.item['lat'];
 
-    this.tecnico.latitude = this.item['lng'];
+    this.tecnico.longitude = this.item['lng'];
 
     
     

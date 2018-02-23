@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 */
 @Injectable()
 export class CustomerProvider {
-  private PATH = 'contacts/'
+  //private PATH = 'contacts/'
   items: Observable<Guest[]>;
   private pathref = this.db.list<Guest>('clientes');
   constructor(private db: AngularFireDatabase) {
@@ -24,7 +24,7 @@ export class CustomerProvider {
     }
     
     add(item: Guest) {
-    
+      
       return this.pathref.push(item);
     }
     
