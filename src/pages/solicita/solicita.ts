@@ -1,6 +1,6 @@
 import { User } from './../../models/user';
 
-import { Solicitante } from './../../models/provider';
+//import { Solicitante } from './../../models/provider';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Guest } from '../../models/guest';

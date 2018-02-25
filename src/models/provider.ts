@@ -1,10 +1,13 @@
-export class Solicitante {
+export class Prestador {
     id: string;
     nome: string;
     email: string;
+    categoria: string;
     descricao: string;
     tecnico: string;
-    late: number;
+    lat: number;
     lng: number;
+    status: boolean;
     token: string;
+    nota: number;
  } 
